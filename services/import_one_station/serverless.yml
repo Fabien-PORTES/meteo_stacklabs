@@ -44,4 +44,4 @@ provider:
 functions:
   import_one_station:
     handler: handler.main
-    timeout: 120
+    timeout: 500

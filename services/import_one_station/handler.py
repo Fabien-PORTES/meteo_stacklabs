@@ -7,7 +7,7 @@ S3_BUCKET = "meteostacklabs"
 
 def main(event, context):
     url = event['url']
-    city = event['city']
+    city = event['city'].lower()
     station = event['station']
 
     res = urllib.request.urlopen(urllib.request.Request(
