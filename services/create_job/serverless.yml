@@ -1,0 +1,48 @@
+
+service: meteo-create-job
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: '2'
+
+
+provider:
+  name: aws
+  runtime: python3.8
+  lambdaHashingVersion: 20201221
+
+  iam:
+    managedPolicies:
+      - 'arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole'
+
+# you can overwrite defaults here
+  stage: dev
+  region: eu-west-1
+
+# you can add statements to the Lambda function's IAM Role here
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:PutObject"
+        - "s3:PutObjectAcl"
+      Resource: 'arn:aws:s3:::aws-glue-assets-530505212955-eu-west-1/*'
+
+    - Effect: "Allow"
+      Action:
+        - "glue:CreateJob"
+      Resource: '*'
+    - Effect: "Allow"
+      Action:
+        - "iam:PassRole"
+      Resource: '*'
+  
+
+functions:
+  create_job:
+    handler: handler.main
+    timeout: 15
+    environment:
+      S3_JOB_SCRIPT_BUCKET: aws-glue-assets-530505212955-eu-west-1
