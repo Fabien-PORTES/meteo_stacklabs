@@ -1,5 +1,5 @@
 
-service: meteo-create-one-job
+service: meteo-create-update-job
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -39,13 +39,8 @@ provider:
   
 
 functions:
-  create_one_job:
+  main:
     handler: handler.main
     timeout: 15
     environment:
       S3_JOB_SCRIPT_BUCKET: aws-glue-assets-530505212955-eu-west-1
-    events:
-    - s3:
-        bucket: meteostacklabs
-        event: s3:ObjectCreated:*
-        existing: true

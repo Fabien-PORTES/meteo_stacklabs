@@ -1,4 +1,4 @@
-cleaning_job_conf = {
+job_conf = {
     'Name':'',
     'Description':'',
     'Role':'meteo_aws_glue_role',
