@@ -29,9 +29,9 @@ provider:
       Resource:  "*"
 
 functions:
-  import_all_station:
+  main:
     handler: handler.main
     timeout: 15
     environment:
-      IMPORT_ONE_STATION: meteo-import-one-station-dev-import_one_station
+      IMPORT_ONE_STATION: meteo-import-one-station-dev-main
 

@@ -42,6 +42,6 @@ provider:
       Resource: 'arn:aws:s3:::meteostacklabs/*'
 
 functions:
-  import_one_station:
+  main:
     handler: handler.main
     timeout: 500

@@ -7,8 +7,7 @@ S3_BUCKET = "meteostacklabs"
 
 def main(event, context):
     url = event['url']
-    city = event['city'].lower()
-    station = event['station']
+    table_name = event['table_name']
 
     res = urllib.request.urlopen(urllib.request.Request(
         url=url,
@@ -17,7 +16,7 @@ def main(event, context):
     timeout=100
     )
     
-    s3_file_path = '{}-{}/{}'.format(city, station, '{}-{}'.format(city, station))
+    s3_file_path = '{}/{}'.format(table_name, table_name)
     s3 = boto3.client('s3')
     
     s3.upload_fileobj(res, S3_BUCKET, s3_file_path)
