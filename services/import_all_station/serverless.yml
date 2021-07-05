@@ -34,4 +34,7 @@ functions:
     timeout: 15
     environment:
       IMPORT_ONE_STATION: meteo-import-one-station-dev-main
+    events:
+      schedule: cron(0 8 * * ? *)
+      enabled: true
 
