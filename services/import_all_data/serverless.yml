@@ -1,5 +1,5 @@
 
-service: meteo-import-all-station
+service: meteo-import-all-data
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -33,7 +33,7 @@ functions:
     handler: handler.main
     timeout: 15
     environment:
-      IMPORT_ONE_STATION: meteo-import-one-station-dev-main
+      IMPORT_ONE_STATION: meteo-import-data-dev-main
     events:
       - schedule: cron(0 8 * * ? *)
 

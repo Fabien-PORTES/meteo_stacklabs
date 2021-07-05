@@ -32,3 +32,5 @@ functions:
     timeout: 15
     environment:
       ONE_JOB_LAMBDA: meteo-create-update-job-dev-main
+      events:
+        - schedule: cron(0 8 * * ? *)
