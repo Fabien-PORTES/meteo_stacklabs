@@ -8,7 +8,12 @@ This project needs following software:
 - [serverless](https://www.serverless.com/) application framework
 - [python 3.*](https://www.python.org/downloads/)
 
-An AWS user with Admin rights is also needed to deploy the application with the appropriate credentials for CLI. You can follow this [documentation](https://docs.aws.amazon.com/fr_fr/IAM/latest/UserGuide/id_users_create.html) to setup your account.
+It also needs some infrastructure:
+- S3 bucket: meteostacklabs: store raw level of project data
+- S3 bucket: meteostacklabsglued: store data transformed by glue jobs
+- S3 bucket: aws-glue-assets-530505212955-eu-west-1: store Glue assets like transform scripts
+
+An AWS IAM user with Admin rights is also needed to deploy the application with the appropriate credentials for CLI. You can follow this [documentation](https://docs.aws.amazon.com/fr_fr/IAM/latest/UserGuide/id_users_create.html) to setup your account.
 
 The above steps don you can configure your AWS credentials in serverless by running
 
@@ -16,7 +21,7 @@ The above steps don you can configure your AWS credentials in serverless by runn
 
 Deployment of a service is done thanks to:
 
-> serverless deploy -c .\serverless.yml -r eu-west-1
+> serverless deploy -c .\serverless.yml
 
 ## Architecture
 
@@ -47,3 +52,5 @@ There are 4 services in the serverless application:
 4. Subscribe to enterprise quicksight edition to leverage dashboard exposition through a serverless website
 5. Better parametrization of serverless application infrastructure for a deeper devops approach
 6. Better error handling and logging for observability purpose
+7. Better table storage to avoid multiple small files
+8. Create a cloud formation template for project infrastructure
