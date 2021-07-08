@@ -5,7 +5,8 @@ This project aims to create vizualization on top of data related to Toulouse wea
 ## Getting started
 
 This project needs following software:
-- [serverless](https://www.serverless.com/) application framework
+- [node](https://nodejs.org/en/download/) to install serverless
+- [serverless](https://www.serverless.com/) application framework. You can install it running `npm install -g serverless` once node is intalled
 - [python 3.*](https://www.python.org/downloads/)
 
 It also needs some infrastructure:
@@ -46,11 +47,12 @@ There are 4 services in the serverless application:
 
 ## TODO
 
-1. Replace lambda function logic creation with lambda step functions for handling of more complex workflow
-2. Move currently isolated configuration to a more flexible and/or versionable configuration store
-3. Handle Glue workflow creation and update throuhg Glue blueprints to automate workflow update
-4. Subscribe to enterprise quicksight edition to leverage dashboard exposition through a serverless website
-5. Better parametrization of serverless application infrastructure for a deeper devops approach
-6. Better error handling and logging for observability purpose
-7. Better table storage to avoid multiple small files
-8. Create a cloud formation template for project infrastructure
+1. Implement unit and integration tests on lambda
+2. Replace lambda function logic creation with lambda step functions for handling of more complex workflow
+3. Move currently isolated configuration to a more flexible and/or versionable configuration store
+4. Handle Glue workflow creation and update throuhg Glue blueprints to automate workflow update
+5. Subscribe to enterprise quicksight edition to leverage dashboard exposition through a serverless website
+6. Better parametrization of serverless application infrastructure for a deeper devops approach
+7. Better error handling and logging for observability purpose
+8. Better table storage to avoid multiple small files
+9. Create a cloud formation template for project infrastructure
